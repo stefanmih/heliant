@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="0004-001" author="Stefan.Mihajlovic">
+        <createTable tableName="STATISTIKA">
+            <column name="ID" type="NUMBER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DATUM" type="DATE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="BROJ_POPUNJENIH_FORMULARA" type="NUMBER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="VREME_KREIRANJA" type="TIMESTAMP"/>
+            <column name="VREME_POSLEDNJE_IZMENE" type="TIMESTAMP"/>
+        </createTable>
+        <addPrimaryKey tableName="STATISTIKA" columnNames="ID" constraintName="STATISTIKA_PK"/>
+    </changeSet>
+</databaseChangeLog>

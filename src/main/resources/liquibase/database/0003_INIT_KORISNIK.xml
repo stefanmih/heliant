@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="0003-001" author="Stefan.Mihajlovic">
+        <createTable tableName="KORISNIK">
+            <column name="ID" type="NUMBER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="KORISNICKO_IME" type="VARCHAR(256)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="LOZINKA" type="VARCHAR(256)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="TIP" type="NUMBER"/>
+            <column name="VREME_KREIRANJA" type="TIMESTAMP"/>
+            <column name="VREME_POSLEDNJE_IZMENE" type="TIMESTAMP"/>
+        </createTable>
+        <addPrimaryKey tableName="KORISNIK" columnNames="ID" constraintName="KORISNIK_PK"/>
+    </changeSet>
+
+    <changeSet id="0003-002" author="Stefan.Mihajlovic">
+        <insert tableName="KORISNIK">
+            <column name="ID" value="1"/>
+            <column name="KORISNICKO_IME" value="admin"/>
+            <column name="LOZINKA" value="$2a$12$vAt3uX6dwxxc7wH85qQdneKbYSAPnq8A75K7VmGtiKIeAqbcCP9yW"/>
+            <column name="TIP" value="1"/>
+        </insert>
+        <insert tableName="KORISNIK">
+            <column name="ID" value="2"/>
+            <column name="KORISNICKO_IME" value="stefan"/>
+            <column name="LOZINKA" value="$2a$12$g7a516/H5NHiT7Sm9u21vOuMlMj7sORhZzAwOjdYAwSXqpR.9sBMm"/>
+            <column name="TIP" value="2"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

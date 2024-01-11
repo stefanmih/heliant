@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="0001-001" author="Stefan.Mihajlovic">
+        <createTable tableName="FORMULAR">
+            <column name="ID" type="NUMBER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="NAZIV" type="VARCHAR(256)"/>
+            <column name="VREME_KREIRANJA" type="TIMESTAMP"/>
+            <column name="VREME_POSLEDNJE_IZMENE" type="TIMESTAMP"/>
+            <column name="ID_KORISNIK_KREIRAO" type="VARCHAR(256)"/>
+            <column name="ID_KORISNIK_POSLEDNJI_AZURIRAO" type="VARCHAR(256)"/>
+        </createTable>
+        <addPrimaryKey tableName="FORMULAR" columnNames="ID" constraintName="FORMULAR_PK"/>
+    </changeSet>
+
+    <changeSet id="0001-002" author="Stefan.Mihajlovic">
+        <createTable tableName="FORMULAR_POPUNJEN">
+            <column name="ID" type="NUMBER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ID_FORMULAR" type="NUMBER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="VREME_KREIRANJA" type="TIMESTAMP"/>
+            <column name="VREME_POSLEDNJE_IZMENE" type="TIMESTAMP"/>
+            <column name="ID_KORISNIK_KREIRAO" type="VARCHAR(256)"/>
+            <column name="ID_KORISNIK_POSLEDNJI_AZURIRAO" type="VARCHAR(256)"/>
+        </createTable>
+        <addPrimaryKey tableName="FORMULAR_POPUNJEN" columnNames="ID" constraintName="FORMULAR_POPUNJEN_PK"/>
+        <addForeignKeyConstraint baseTableName="FORMULAR_POPUNJEN" baseColumnNames="ID_FORMULAR"
+                                 constraintName="FORMULAR_POPUNJEN_FK01"
+                                 referencedTableName="FORMULAR"
+                                 referencedColumnNames="ID"/>
+    </changeSet>
+</databaseChangeLog>

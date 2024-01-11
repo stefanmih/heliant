@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="0002-001" author="Stefan.Mihajlovic">
+        <createTable tableName="POLJE">
+            <column name="ID" type="NUMBER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ID_FORMULAR" type="NUMBER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="NAZIV" type="VARCHAR(256)"/>
+            <column name="PRIKAZNI_REDOSLED" type="NUMBER"/>
+            <column name="TIP" type="NUMBER"/>
+            <column name="VREME_KREIRANJA" type="TIMESTAMP"/>
+            <column name="VREME_POSLEDNJE_IZMENE" type="TIMESTAMP"/>
+            <column name="ID_KORISNIK_KREIRAO" type="VARCHAR(256)"/>
+            <column name="ID_KORISNIK_POSLEDNJI_AZURIRAO" type="VARCHAR(256)"/>
+        </createTable>
+        <addPrimaryKey tableName="POLJE" columnNames="ID" constraintName="POLJE_PK"/>
+        <addForeignKeyConstraint baseTableName="POLJE" baseColumnNames="ID_FORMULAR"
+                                 constraintName="POLJE_FORMULAR_FK01"
+                                 referencedTableName="FORMULAR"
+                                 referencedColumnNames="ID"/>
+
+    </changeSet>
+
+    <changeSet id="0002-002" author="Stefan.Mihajlovic">
+        <createTable tableName="POLJE_POPUNJENO">
+            <column name="ID" type="NUMBER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ID_FORMULAR_POPUNJEN" type="NUMBER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ID_POLJE" type="NUMBER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="VREDNOST_TEKST" type="VARCHAR(256)"/>
+            <column name="VREDNOST_BROJ" type="DOUBLE"/>
+            <column name="VREME_KREIRANJA" type="TIMESTAMP"/>
+            <column name="VREME_POSLEDNJE_IZMENE" type="TIMESTAMP"/>
+            <column name="ID_KORISNIK_KREIRAO" type="VARCHAR(256)"/>
+            <column name="ID_KORISNIK_POSLEDNJI_AZURIRAO" type="VARCHAR(256)"/>
+        </createTable>
+        <addPrimaryKey tableName="POLJE_POPUNJENO" columnNames="ID" constraintName="POLJE_POPUNJENO_PK"/>
+        <addForeignKeyConstraint baseTableName="POLJE_POPUNJENO" baseColumnNames="ID_FORMULAR_POPUNJEN"
+                                 constraintName="POLJE_POP_FORMULAR_FK01"
+                                 referencedTableName="FORMULAR"
+                                 referencedColumnNames="ID"/>
+        <addForeignKeyConstraint baseTableName="POLJE_POPUNJENO" baseColumnNames="ID_POLJE"
+                                 constraintName="POLJE_POPUNJENO_FK01"
+                                 referencedTableName="POLJE"
+                                 referencedColumnNames="ID"/>
+    </changeSet>
+</databaseChangeLog>
