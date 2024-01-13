@@ -3,6 +3,8 @@ package rs.heliant.dto;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -10,6 +12,7 @@ import java.util.Date;
 @Setter
 public class PoljePopunjenoDTO implements Serializable {
 
+    @NotNull
     private Integer id;
 
     private Integer vrednostBroj;
@@ -28,8 +31,10 @@ public class PoljePopunjenoDTO implements Serializable {
 
     public KorisnikDTO korisnikPoslednjiAzurirao;
 
+    @NotNull
     public Integer idFormularPopunjen;
 
+    @NotNull
     public Integer idPolje;
 
 }
