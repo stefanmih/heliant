@@ -29,12 +29,18 @@ public class PoljePopunjenoDO implements Serializable {
     @Column(name = "VREME_POSLEDNJE_IZMENE")
     private Date vremePoslednjeIzmeme;
 
+    @Column(name = "ID_FORMULAR_POPUNJEN")
+    private Integer idFormularPopunjen;
+
+    @Column(name = "ID_POLJE")
+    private Integer idPolje;
+
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ID_FORMULAR_POPUNJEN")
+    @JoinColumn(name = "ID_FORMULAR_POPUNJEN", insertable = false, updatable = false)
     public FormularPopunjenDO formular;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ID_POLJE")
+    @JoinColumn(name = "ID_POLJE", insertable = false, updatable = false)
     public PoljeDO polje;
 
     @ManyToOne(fetch = FetchType.EAGER)
@@ -45,4 +51,10 @@ public class PoljePopunjenoDO implements Serializable {
     @JoinColumn(name = "ID_KORISNIK_POSLEDNJI_AZURIRAO")
     public KorisnikDO korisnikPoslednjiAzurirao;
 
+    public FormularPopunjenDO getFormular() {
+        return null;
+    }
+    public PoljeDO getPolje() {
+        return null;
+    }
 }

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import rs.heliant.configuration.CurrentUserConfiguration;
 import rs.heliant.security.JwtRequest;
 import rs.heliant.security.JwtResponse;
 import rs.heliant.security.JwtTokenUtil;
@@ -31,6 +32,9 @@ public class JwtAuthenticationController {
     @Autowired
     private JwtUserDetailsService userDetailsService;
 
+    @Autowired
+    private CurrentUserConfiguration currentUserConfiguration;
+
     @RequestMapping(value = "/authenticate", method = RequestMethod.POST)
     public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtRequest authenticationRequest) throws Exception {
 
@@ -47,6 +51,7 @@ public class JwtAuthenticationController {
     private void authenticate(String username, String password) throws Exception {
         try {
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
+            currentUserConfiguration.setLoggedUser(username);
         } catch (DisabledException e) {
             throw new Exception("USER_DISABLED", e);
         } catch (BadCredentialsException e) {

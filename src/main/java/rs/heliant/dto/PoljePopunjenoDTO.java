@@ -28,4 +28,8 @@ public class PoljePopunjenoDTO implements Serializable {
 
     public KorisnikDTO korisnikPoslednjiAzurirao;
 
+    public Integer idFormularPopunjen;
+
+    public Integer idPolje;
+
 }

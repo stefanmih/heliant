@@ -23,6 +23,9 @@ public class FormularPopunjenDO implements Serializable {
     @Column(name = "VREME_POSLEDNJE_IZMENE")
     private Date vremePoslednjeIzmeme;
 
+    @Column(name = "ID_FORMULAR")
+    private String idFormular;
+
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "ID_KORISNIK_KREIRAO")
     public KorisnikDO korisnikKreirao;
@@ -31,8 +34,11 @@ public class FormularPopunjenDO implements Serializable {
     @JoinColumn(name = "ID_KORISNIK_POSLEDNJI_AZURIRAO")
     public KorisnikDO korisnikPoslednjiAzurirao;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ID_FORMULAR")
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "ID_FORMULAR", insertable = false, updatable = false)
     public FormularDO formular;
 
+    public FormularDO getFormular() {
+        return null;
+    }
 }

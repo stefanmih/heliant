@@ -7,6 +7,7 @@ import rs.heliant.enums.PoljeType;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "POLJE")
@@ -34,6 +35,9 @@ public class PoljeDO implements Serializable {
     @Column(name = "VREME_POSLEDNJE_IZMENE")
     private Date vremePoslednjeIzmeme;
 
+    @Column(name = "ID_FORMULAR")
+    private String idFormular;
+
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "ID_KORISNIK_KREIRAO")
     public KorisnikDO korisnikKreirao;
@@ -43,8 +47,13 @@ public class PoljeDO implements Serializable {
     public KorisnikDO korisnikPoslednjiAzurirao;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ID_FORMULAR")
+    @JoinColumn(name = "ID_FORMULAR" , insertable = false, updatable = false)
     public FormularDO formular;
 
+    @OneToMany(mappedBy = "polje", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private List<PoljePopunjenoDO> polja;
 
+    public FormularDO getFormular() {
+        return null;
+    }
 }

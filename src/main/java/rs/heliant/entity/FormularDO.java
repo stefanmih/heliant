@@ -37,10 +37,10 @@ public class FormularDO implements Serializable {
     @JoinColumn(name = "ID_KORISNIK_POSLEDNJI_AZURIRAO")
     public KorisnikDO korisnikPoslednjiAzurirao;
 
-    @OneToMany(mappedBy = "formular", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "formular", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Set<FormularPopunjenDO> formularPopunjen;
 
-    @OneToMany(mappedBy = "formular", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "formular", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<PoljeDO> polja;
 
 }

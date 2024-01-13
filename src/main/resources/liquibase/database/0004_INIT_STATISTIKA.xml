@@ -6,6 +6,11 @@
         https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
 
     <changeSet id="0004-001" author="Stefan.Mihajlovic">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="STATISTIKA"/>
+            </not>
+        </preConditions>
         <createTable tableName="STATISTIKA">
             <column name="ID" type="NUMBER">
                 <constraints nullable="false"/>

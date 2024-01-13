@@ -6,6 +6,11 @@
         https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
 
     <changeSet id="0001-001" author="Stefan.Mihajlovic">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="FORMULAR"/>
+            </not>
+        </preConditions>
         <createTable tableName="FORMULAR">
             <column name="ID" type="NUMBER">
                 <constraints nullable="false"/>
@@ -20,6 +25,11 @@
     </changeSet>
 
     <changeSet id="0001-002" author="Stefan.Mihajlovic">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="FORMULAR_POPUNJEN"/>
+            </not>
+        </preConditions>
         <createTable tableName="FORMULAR_POPUNJEN">
             <column name="ID" type="NUMBER">
                 <constraints nullable="false"/>

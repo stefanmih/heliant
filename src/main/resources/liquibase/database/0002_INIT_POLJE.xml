@@ -6,6 +6,11 @@
         https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
 
     <changeSet id="0002-001" author="Stefan.Mihajlovic">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="POLJE"/>
+            </not>
+        </preConditions>
         <createTable tableName="POLJE">
             <column name="ID" type="NUMBER">
                 <constraints nullable="false"/>
@@ -30,6 +35,11 @@
     </changeSet>
 
     <changeSet id="0002-002" author="Stefan.Mihajlovic">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="POLJE_POPUNJENO"/>
+            </not>
+        </preConditions>
         <createTable tableName="POLJE_POPUNJENO">
             <column name="ID" type="NUMBER">
                 <constraints nullable="false"/>
@@ -50,7 +60,7 @@
         <addPrimaryKey tableName="POLJE_POPUNJENO" columnNames="ID" constraintName="POLJE_POPUNJENO_PK"/>
         <addForeignKeyConstraint baseTableName="POLJE_POPUNJENO" baseColumnNames="ID_FORMULAR_POPUNJEN"
                                  constraintName="POLJE_POP_FORMULAR_FK01"
-                                 referencedTableName="FORMULAR"
+                                 referencedTableName="FORMULAR_POPUNJEN"
                                  referencedColumnNames="ID"/>
         <addForeignKeyConstraint baseTableName="POLJE_POPUNJENO" baseColumnNames="ID_POLJE"
                                  constraintName="POLJE_POPUNJENO_FK01"
