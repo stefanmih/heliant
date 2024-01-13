@@ -1,6 +1,6 @@
 package rs.heliant.entity;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import rs.heliant.enums.PoljeType;

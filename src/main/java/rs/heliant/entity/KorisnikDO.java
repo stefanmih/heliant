@@ -1,10 +1,10 @@
 package rs.heliant.entity;
 
-import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import rs.heliant.enums.KorisnikRole;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -34,7 +34,4 @@ public class KorisnikDO implements Serializable {
     @Column(name = "VREME_POSLEDNJE_IZMENE")
     private Date vremePoslednjeIzmeme;
 
-    public String getLozinka() {
-        return null;
-    }
 }

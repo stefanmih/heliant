@@ -1,12 +1,13 @@
 package rs.heliant.entity;
 
-import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -40,6 +41,6 @@ public class FormularDO implements Serializable {
     private Set<FormularPopunjenDO> formularPopunjen;
 
     @OneToMany(mappedBy = "formular", fetch = FetchType.EAGER)
-    private Set<PoljeDO> polja;
+    private List<PoljeDO> polja;
 
 }
