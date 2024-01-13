@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns="http://dozer.sourceforge.net"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://dozer.sourceforge.net
+      http://dozer.sourceforge.net/schema/beanmapping.xsd">
+    <mapping wildcard="true" map-id="PoljeDO_PoljeDTO">
+        <class-a>rs.heliant.entity.PoljeDO</class-a>
+        <class-b>rs.heliant.dto.PoljeDTO</class-b>
+    </mapping>
+
+    <mapping wildcard="true" map-id="PoljeDTO_PoljeDO">
+        <class-a>rs.heliant.dto.PoljeDTO</class-a>
+        <class-b>rs.heliant.entity.PoljeDO</class-b>
+    </mapping>
+
+    <mapping wildcard="true" map-id="PoljePopunjenoDO_PoljePopunjenoDTO">
+        <class-a>rs.heliant.entity.PoljePopunjenoDO</class-a>
+        <class-b>rs.heliant.dto.PoljePopunjenoDTO</class-b>
+    </mapping>
+
+    <mapping wildcard="true" map-id="PoljePopunjenoDTO_PoljePopunjenoDO">
+        <class-a>rs.heliant.dto.PoljePopunjenoDTO</class-a>
+        <class-b>rs.heliant.entity.PoljePopunjenoDO</class-b>
+    </mapping>
+</mappings>

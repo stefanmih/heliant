@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns="http://dozer.sourceforge.net"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://dozer.sourceforge.net
+      http://dozer.sourceforge.net/schema/beanmapping.xsd">
+    <mapping wildcard="true" map-id="FormularDO_FormularDTO">
+        <class-a>rs.heliant.entity.FormularDO</class-a>
+        <class-b>rs.heliant.dto.FormularDTO</class-b>
+    </mapping>
+
+    <mapping wildcard="true" map-id="FormularDTO_FormularDO">
+        <class-a>rs.heliant.dto.FormularDTO</class-a>
+        <class-b>rs.heliant.entity.FormularDO</class-b>
+    </mapping>
+
+    <mapping wildcard="true" map-id="FormularPopunjenDO_FormularPopunjenDTO">
+        <class-a>rs.heliant.entity.FormularPopunjenDO</class-a>
+        <class-b>rs.heliant.dto.FormularPopunjenDTO</class-b>
+    </mapping>
+
+    <mapping wildcard="true" map-id="FormularPopunjenDTO_FormularPopunjenDO">
+        <class-a>rs.heliant.dto.FormularPopunjenDTO</class-a>
+        <class-b>rs.heliant.entity.FormularPopunjenDO</class-b>
+    </mapping>
+</mappings>
