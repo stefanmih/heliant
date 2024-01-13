@@ -18,8 +18,8 @@
             <column name="TIP" type="NUMBER"/>
             <column name="VREME_KREIRANJA" type="TIMESTAMP"/>
             <column name="VREME_POSLEDNJE_IZMENE" type="TIMESTAMP"/>
-            <column name="ID_KORISNIK_KREIRAO" type="VARCHAR(256)"/>
-            <column name="ID_KORISNIK_POSLEDNJI_AZURIRAO" type="VARCHAR(256)"/>
+            <column name="ID_KORISNIK_KREIRAO" type="NUMBER"/>
+            <column name="ID_KORISNIK_POSLEDNJI_AZURIRAO" type="NUMBER"/>
         </createTable>
         <addPrimaryKey tableName="POLJE" columnNames="ID" constraintName="POLJE_PK"/>
         <addForeignKeyConstraint baseTableName="POLJE" baseColumnNames="ID_FORMULAR"
@@ -44,8 +44,8 @@
             <column name="VREDNOST_BROJ" type="DOUBLE"/>
             <column name="VREME_KREIRANJA" type="TIMESTAMP"/>
             <column name="VREME_POSLEDNJE_IZMENE" type="TIMESTAMP"/>
-            <column name="ID_KORISNIK_KREIRAO" type="VARCHAR(256)"/>
-            <column name="ID_KORISNIK_POSLEDNJI_AZURIRAO" type="VARCHAR(256)"/>
+            <column name="ID_KORISNIK_KREIRAO" type="NUMBER"/>
+            <column name="ID_KORISNIK_POSLEDNJI_AZURIRAO" type="NUMBER"/>
         </createTable>
         <addPrimaryKey tableName="POLJE_POPUNJENO" columnNames="ID" constraintName="POLJE_POPUNJENO_PK"/>
         <addForeignKeyConstraint baseTableName="POLJE_POPUNJENO" baseColumnNames="ID_FORMULAR_POPUNJEN"
