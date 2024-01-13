@@ -22,9 +22,4 @@ public class StatistikaDO implements Serializable {
     @Column(name = "BROJ_POPUNJENIH_FORMULARA")
     private Integer brojPopunjenihFormulara;
 
-    @Column(name = "VREME_KREIRANJA")
-    private Date vremeKreiranja;
-
-    @Column(name = "VREME_POSLEDNJE_IZMENE")
-    private Date vremePoslednjeIzmeme;
 }

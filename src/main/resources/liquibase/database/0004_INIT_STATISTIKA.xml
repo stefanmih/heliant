@@ -21,8 +21,6 @@
             <column name="BROJ_POPUNJENIH_FORMULARA" type="NUMBER">
                 <constraints nullable="false"/>
             </column>
-            <column name="VREME_KREIRANJA" type="TIMESTAMP"/>
-            <column name="VREME_POSLEDNJE_IZMENE" type="TIMESTAMP"/>
         </createTable>
         <addPrimaryKey tableName="STATISTIKA" columnNames="ID" constraintName="STATISTIKA_PK"/>
     </changeSet>

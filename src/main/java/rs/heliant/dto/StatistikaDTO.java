@@ -20,7 +20,4 @@ public class StatistikaDTO implements Serializable {
     @NotNull
     private Integer brojPopunjenihFormulara;
 
-    private Date vremeKreiranja;
-
-    private Date vremePoslednjeIzmeme;
 }

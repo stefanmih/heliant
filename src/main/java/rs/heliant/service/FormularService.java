@@ -8,6 +8,7 @@ import rs.heliant.dto.FormularDTO;
 import rs.heliant.dto.FormularPopunjenDTO;
 import rs.heliant.dto.KorisnikDTO;
 import rs.heliant.entity.FormularDO;
+import rs.heliant.entity.FormularPopunjenDO;
 import rs.heliant.repository.FormularRepository;
 
 import java.util.ArrayList;
@@ -101,6 +102,15 @@ public class FormularService {
             e.printStackTrace();
             return ResponseEntity.ok("not deleted");
         }
+    }
+
+    public List<FormularPopunjenDO> countFormularPopunjen(){
+        List<FormularPopunjenDO> formularPopunjenDTOList = new ArrayList<>();
+        for(FormularDO formular : repository.findAll()){
+            if(formular.getFormularPopunjen() != null)
+                formularPopunjenDTOList.addAll(formular.getFormularPopunjen());
+        }
+        return formularPopunjenDTOList;
     }
 
 }
